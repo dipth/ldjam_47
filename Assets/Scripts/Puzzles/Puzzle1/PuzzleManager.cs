@@ -2,7 +2,7 @@
 
 namespace Puzzles
 {
-    namespace Puzzle2
+    namespace Puzzle1
     {
         public class PuzzleManager : MonoBehaviour
         {
@@ -22,24 +22,17 @@ namespace Puzzles
                 }
             }
 
-            public GameObject pressurePlateLeft;
-            public GameObject pressurePlateRight;
+            public GameObject pressurePlate;
             public GameObject door;
 
-            private int pressurePlateLeftWeight = 0;
-            private int pressurePlateRightWeight = 0;
+            private int pressurePlateWeight = 0;
 
             public void OnPressurePlateEnter(GameObject pressurePlate, GameObject triggerPerson)
             {
                 Debug.Log("OnPressurePlateEnter called");
 
-                if (pressurePlate == pressurePlateLeft)
-                {
-                    pressurePlateLeftWeight++;
-                } else if (pressurePlate == pressurePlateRight)
-                {
-                    pressurePlateRightWeight++;
-                }
+                if (pressurePlate == this.pressurePlate)
+                    pressurePlateWeight++;
 
                 UpdateDoor();
             }
@@ -48,26 +41,21 @@ namespace Puzzles
             {
                 Debug.Log("OnPressurePlateExit called");
 
-                if (pressurePlate == pressurePlateLeft)
-                {
-                    pressurePlateLeftWeight--;
-                }
-                else if (pressurePlate == pressurePlateRight)
-                {
-                    pressurePlateRightWeight--;
-                }
+                if (pressurePlate == this.pressurePlate)
+                    pressurePlateWeight--;
 
                 UpdateDoor();
             }
 
             private void UpdateDoor()
             {
-                Debug.Log($"UpdateDoor called: {pressurePlateLeftWeight}, {pressurePlateRightWeight}");
+                Debug.Log($"UpdateDoor called: {pressurePlateWeight}");
 
-                if (pressurePlateLeftWeight > 0 && pressurePlateRightWeight > 0)
+                if (pressurePlateWeight > 0)
                 {
                     OpenDoor();
-                } else
+                }
+                else
                 {
                     CloseDoor();
                 }

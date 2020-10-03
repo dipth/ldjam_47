@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,32 +8,28 @@ public class TimeController : MonoBehaviour
     public event Action OnTimeRewind;
     public event Action OnTimeDoneRewind;
 
-    public List<PointInTime> points = new List<PointInTime>();
+    public event Action OnPlayerReset;
+
     public bool rewinding = false;
+
+    PlayerMove playerMove;
 
     private void Awake()
     {
         TimeManager.instance.OnTimesUp += HandleTime;
+        playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
     }
 
     private void FixedUpdate()
     {
-        if (rewinding)
-            Rewind();
-        else
-            HandlePoints();
     }
 
-    private void Rewind()
+    IEnumerator ResetPlayer() 
     {
-        if (points.Count > 0)
-        {
-            transform.position = points[0].position;
-            transform.rotation = points[0].rotation;
-            points.RemoveAt(0);
-        }
-        else
-            StopRewinding();
+        playerMove.DisableCharacterController();
+
+
+        yield return new WaitForSeconds(1f);
     }
 
     private void HandleTime()
@@ -54,11 +51,5 @@ public class TimeController : MonoBehaviour
 
         if (OnTimeDoneRewind != null)
             OnTimeDoneRewind.Invoke();
-    }
-
-    private void HandlePoints()
-    {
-        PointInTime point = new PointInTime(transform.position, transform.rotation);
-        points.Insert(0, point);
     }
 }

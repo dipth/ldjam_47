@@ -7,9 +7,13 @@ public class Ghost : MonoBehaviour
 {
     PointInTime[] path;
 
-    public bool canMove = false;
+    public MeshRenderer mr;
+    public GameObject lightSource;
 
-    private void FixedUpdate()
+    public bool canMove = false;
+    public int pathIndex;
+
+    private void Update()
     {
         if (canMove)
         {
@@ -21,14 +25,23 @@ public class Ghost : MonoBehaviour
     {
         path = new PointInTime[_path.Count];
         _path.CopyTo(path);
-        Array.Reverse(path);
     }
 
     void FollowPath() 
     {
         if (path.Length > 0)
         {
-                    
+            if (pathIndex > (path.Length-1))
+                return;
+
+            transform.position = path[pathIndex].position;
+            pathIndex++;
         }
+    }
+
+    public void EnableVisuals() 
+    {
+        mr.enabled = true;
+        lightSource.SetActive(true);
     }
 }

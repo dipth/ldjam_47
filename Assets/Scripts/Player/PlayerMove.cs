@@ -8,35 +8,23 @@ public class PlayerMove : MonoBehaviour
     public float playerSpeed;
     [HideInInspector]public bool canMove;
 
+    public List<PointInTime> points = new List<PointInTime>();
     private CharacterController characterController;
-    private TimeController timeController;
-    private Vector3 playerVelocity;
     private Vector3 moveDir;
-    private bool groundedPlayer;
  
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        timeController = GetComponent<TimeController>();
     }
 
     void Update()
     {
-        HandleCharacterController();
-
         if (characterController.enabled)
         {
             HandleInput();
             HandleMove();
+            HandlePoints();
         }
-    }
-
-    private void HandleCharacterController()
-    {
-        if (timeController.rewinding)
-            characterController.enabled = false;
-        else
-            characterController.enabled = true;
     }
 
     void HandleInput() 
@@ -48,12 +36,27 @@ public class PlayerMove : MonoBehaviour
     }
     void HandleMove() 
     {
-        groundedPlayer = characterController.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
-
         characterController.Move(moveDir * Time.deltaTime * playerSpeed);
+    }
+    private void HandlePoints()
+    {
+        PointInTime point = new PointInTime(transform.position, transform.rotation);
+        points.Add(point);
+    }
+
+    public void DisableCharacterController()
+    {
+        characterController.enabled = false;    
+    }
+    public void EnableCharacterController() 
+    {
+        characterController.enabled = true;
+    }
+
+    public void ResetPosition(Vector3 newPos, Quaternion newRot) 
+    {
+        transform.position = newPos;
+        transform.rotation = newRot;
+        points.Clear();
     }
 }
