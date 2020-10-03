@@ -33,7 +33,7 @@ namespace Puzzles
             {
                 Debug.Log("OnPressurePlateEnter called");
 
-                if (triggerPerson.CompareTag("Player") && triggerPerson.CompareTag("Ghost")) { return; }
+                if (!triggerPerson.CompareTag("Player") && !triggerPerson.CompareTag("Ghost")) { return; }
                 
                 if (pressurePlate == pressurePlateLeft)
                 {
@@ -50,7 +50,7 @@ namespace Puzzles
             {
                 Debug.Log("OnPressurePlateExit called");
 
-                if (triggerPerson.CompareTag("Player") && triggerPerson.CompareTag("Ghost")) { return; }
+                if (!triggerPerson.CompareTag("Player") && !triggerPerson.CompareTag("Ghost")) { return; }
 
                 if (pressurePlate == pressurePlateLeft)
                 {
