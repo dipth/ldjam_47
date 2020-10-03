@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Timers;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
@@ -27,7 +26,6 @@ public class TimeManager : MonoBehaviour
         StartTimer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         StartTimer();
@@ -41,6 +39,7 @@ public class TimeManager : MonoBehaviour
 
     void StopTimer() 
     {
+        stopwatch.Stop();
         stopwatch.Reset();
     }
 
@@ -58,5 +57,7 @@ public class TimeManager : MonoBehaviour
     {
         if (OnTimesUp != null)
             OnTimesUp.Invoke();
+
+        UnityEngine.Debug.Log("TimesUp");
     }
 }

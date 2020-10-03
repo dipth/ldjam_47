@@ -106,8 +106,6 @@ GameObject:
   - component: {fileID: 6100167433262282928}
   - component: {fileID: 6100167433262282933}
   - component: {fileID: 6100167433262282932}
-  - component: {fileID: 6100167433262282890}
-  - component: {fileID: 7125219006458417312}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -223,30 +221,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 15
   canMove: 1
---- !u!114 &6100167433262282890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6100167433262282931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2386419f5168ec246b6f4be3143b0fbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rewinding: 0
---- !u!114 &7125219006458417312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6100167433262282931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afdd4f0657398fe4ca50ed3b0c8eac20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 0}
-  ghostParent: {fileID: 0}
