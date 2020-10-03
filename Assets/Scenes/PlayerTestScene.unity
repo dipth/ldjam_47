@@ -496,28 +496,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6100167432731029930}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &725330196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7238211749026624840, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 7238211748525243536}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &725330197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725330196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a2f66209ace97d49b0ceee57dca0db6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wayPoints:
-  - {fileID: 232337232}
-  currentWaypointIndex: 0
-  ResetTimer: 0
 --- !u!1 &1232965610
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +971,11 @@ PrefabInstance:
       propertyPath: timeToRewind
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 1078882284504842700, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
+        type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 232337232}
     - target: {fileID: 6099189295270933464, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
         type: 3}
       propertyPath: ghostPrefab
