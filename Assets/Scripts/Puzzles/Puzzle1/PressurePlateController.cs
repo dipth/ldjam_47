@@ -14,7 +14,7 @@ namespace Puzzles
                 if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Ghost"))
                     return;
 
-                EventManager.Instance.OnPressurePlateEnter(other.gameObject);
+                PuzzleManager.Instance.OnPressurePlateEnter(this.gameObject, other.gameObject);
             }
 
             private void OnTriggerExit(Collider other)
@@ -25,7 +25,7 @@ namespace Puzzles
                 if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Ghost"))
                     return;
 
-                EventManager.Instance.OnPressurePlateExit(other.gameObject);
+                PuzzleManager.Instance.OnPressurePlateExit(this.gameObject, other.gameObject);
             }
         }
     }
