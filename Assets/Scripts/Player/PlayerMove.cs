@@ -9,23 +9,22 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]public bool canMove;
 
     private CharacterController characterController;
+    private TimeController timeController;
     private Vector3 playerVelocity;
     private Vector3 moveDir;
     private bool groundedPlayer;
-    private float gravityValue = -9.81f;
-    // Start is called before the first frame update
  
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        timeController = GetComponent<TimeController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleCharacterController();
 
-        if (canMove)
+        if (characterController.enabled)
         {
             HandleInput();
             HandleMove();
@@ -34,10 +33,10 @@ public class PlayerMove : MonoBehaviour
 
     private void HandleCharacterController()
     {
-        if (canMove)
-            characterController.enabled = true;
-        else
+        if (timeController.rewinding)
             characterController.enabled = false;
+        else
+            characterController.enabled = true;
     }
 
     void HandleInput() 
@@ -56,6 +55,5 @@ public class PlayerMove : MonoBehaviour
         }
 
         characterController.Move(moveDir * Time.deltaTime * playerSpeed);
-        
     }
 }

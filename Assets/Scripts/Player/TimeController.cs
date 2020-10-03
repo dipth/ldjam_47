@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
+    public event Action OnTimeRewind;
+
     public List<PointInTime> points = new List<PointInTime>();
-    bool rewinding = false;
-
-    private PlayerMove playerMove;
-
-    private void Awake()
-    {
-        playerMove = GetComponent<PlayerMove>();
-    }
+    public bool rewinding = false;
 
     private void Update()
     {
@@ -49,19 +44,20 @@ public class TimeController : MonoBehaviour
 
     private void StartRewinding() 
     {
+        if (OnTimeRewind != null)
+        OnTimeRewind.Invoke();
+        
         rewinding = true;
-        playerMove.canMove = false;
     }
 
     private void StopRewinding() 
     {
         rewinding = false;
-        playerMove.canMove = true;
     }
 
     private void HandlePoints()
     {
-            PointInTime point = new PointInTime(transform.position, transform.rotation);
-            points.Insert(0, point);
+        PointInTime point = new PointInTime(transform.position, transform.rotation);
+        points.Insert(0, point);
     }
 }
