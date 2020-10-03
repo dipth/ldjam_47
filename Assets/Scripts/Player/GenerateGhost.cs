@@ -8,22 +8,6 @@ public class GenerateGhost : MonoBehaviour
 
     private void Awake()
     {
-        timeController = GetComponent<TimeController>();
-        timeController.OnTimeRewind += CreateGhost;
-    }
 
-    public void CreateGhost() 
-    {
-        Ghost clone;
-        clone = Instantiate(ghostPrefab, transform.position, Quaternion.identity,ghostParent);
-        clone.AddPath(timeController.points);
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            CreateGhost();
-        }
     }
 }
