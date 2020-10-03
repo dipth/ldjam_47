@@ -14,16 +14,20 @@ namespace Puzzles
 
             private void OpenDoor(GameObject gameObject)
             {
+                if (!gameObject.CompareTag("Player") && !gameObject.CompareTag("Ghost"))
+                    return;
+
                 Debug.Log("OpenDoor called");
-                if (gameObject.tag == "Player" || gameObject.tag == "Ghost")
-                    this.gameObject.SetActive(false);
+                this.gameObject.SetActive(false);
             }
 
             private void CloseDoor(GameObject gameObject)
             {
+                if (!gameObject.CompareTag("Player") && !gameObject.CompareTag("Ghost"))
+                    return;
+
                 Debug.Log("CloseDoor called");
-                if (gameObject.tag == "Player" || gameObject.tag == "Ghost")
-                    this.gameObject.SetActive(true);
+                this.gameObject.SetActive(true);
             }
         }
     }
