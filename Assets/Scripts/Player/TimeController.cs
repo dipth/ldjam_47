@@ -5,13 +5,14 @@ using UnityEngine;
 public class TimeController : MonoBehaviour
 {
     public event Action OnTimeRewind;
+    public event Action OnTimeDoneRewind;
 
     public List<PointInTime> points = new List<PointInTime>();
     public bool rewinding = false;
 
-    private void Update()
+    private void Awake()
     {
-        HandleTime();
+        TimeManager.instance.OnTimesUp += HandleTime;
     }
 
     private void FixedUpdate()
@@ -36,23 +37,23 @@ public class TimeController : MonoBehaviour
 
     private void HandleTime()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartRewinding();
-        }
+        StartRewinding();
     }
 
-    private void StartRewinding() 
+    public void StartRewinding() 
     {
-        if (OnTimeRewind != null)
-        OnTimeRewind.Invoke();
-        
         rewinding = true;
+
+        if (OnTimeRewind != null)
+            OnTimeRewind.Invoke();
     }
 
     private void StopRewinding() 
     {
         rewinding = false;
+
+        if (OnTimeDoneRewind != null)
+            OnTimeDoneRewind.Invoke();
     }
 
     private void HandlePoints()

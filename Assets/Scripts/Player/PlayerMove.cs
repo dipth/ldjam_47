@@ -25,9 +25,10 @@ public class PlayerMove : MonoBehaviour
         HandleCharacterController();
 
         if (characterController.enabled)
+        {
             HandleInput();
-
-        HandleMove();
+            HandleMove();
+        }
     }
 
     private void HandleCharacterController()
@@ -40,8 +41,8 @@ public class PlayerMove : MonoBehaviour
 
     void HandleInput() 
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         moveDir = new Vector3(x, 0, z).normalized;
     }
