@@ -25,10 +25,9 @@ public class PlayerMove : MonoBehaviour
         HandleCharacterController();
 
         if (characterController.enabled)
-        {
             HandleInput();
-            HandleMove();
-        }
+
+        HandleMove();
     }
 
     private void HandleCharacterController()
