@@ -38,9 +38,6 @@ namespace Puzzles
 
             public void OnPressurePlateEnter(GameObject pressurePlate, GameObject triggerPerson)
             {
-                if (!triggerPerson.CompareTag("Player") && !triggerPerson.CompareTag("Ghost"))
-                    return;
-
                 Debug.Log("OnPressurePlateEnter called");
 
                 if (pressurePlate == pressurePlate1)
@@ -65,9 +62,6 @@ namespace Puzzles
 
             public void OnPressurePlateExit(GameObject pressurePlate, GameObject triggerPerson)
             {
-                if (!triggerPerson.CompareTag("Player") && !triggerPerson.CompareTag("Ghost"))
-                    return;
-
                 Debug.Log("OnPressurePlateEnter called");
 
                 if (pressurePlate == pressurePlate1)
