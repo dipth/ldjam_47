@@ -41,7 +41,7 @@ public class TimeManager : MonoBehaviour
         stopwatch.Start();
     }
 
-    void StopTimer() 
+    public void StopTimer() 
     {
         stopwatch.Stop();
         stopwatch.Reset();
