@@ -49,4 +49,11 @@ public class GameManager : MonoBehaviour
         GhostManager.instance.ResetGhosts();
         GhostManager.instance.EnableGhosts();
     }
+
+    public void NewWaypoint(int newIndex) 
+    {
+        currentWaypointIndex = newIndex;
+        GhostManager.instance.GhostBusters();
+        playerMove.ClearPath();
+    }
 }

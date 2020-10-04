@@ -7,7 +7,7 @@ public class Ghost : MonoBehaviour
 {
     PointInTime[] path;
 
-    public MeshRenderer mr;
+    public SpriteRenderer Sr;
     public GameObject lightSource;
 
     public bool canMove = false;
@@ -41,7 +41,7 @@ public class Ghost : MonoBehaviour
 
     public void EnableVisuals() 
     {
-        mr.enabled = true;
+        Sr.enabled = true;
         lightSource.SetActive(true);
     }
 }
