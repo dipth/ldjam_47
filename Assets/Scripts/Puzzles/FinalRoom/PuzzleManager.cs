@@ -12,6 +12,8 @@ namespace Puzzles
 
             public static PuzzleManager Instance { get { return _instance; } }
 
+            private float delay = 2f;
+
             private void Awake()
             {
                 if (_instance != null && _instance != this)
@@ -44,7 +46,7 @@ namespace Puzzles
             {
                 if (switchTime > 0 && !audio.isPlaying)
                 {
-                    SceneManager.LoadScene("EndCreditsScene");
+                    StartCoroutine(TriggerEndCredits());
                 }
             }
 
@@ -70,6 +72,8 @@ namespace Puzzles
 
             IEnumerator GlitchOut()
             {
+                yield return new WaitForSeconds(delay);
+
                 Camera mainCamera = Camera.main;
                 Kino.DigitalGlitch effect = mainCamera.GetComponent<Kino.DigitalGlitch>();
 
@@ -83,6 +87,12 @@ namespace Puzzles
 
                     yield return new WaitForEndOfFrame();
                 }
+            }
+
+            IEnumerator TriggerEndCredits()
+            {
+                yield return new WaitForSeconds(delay);
+                SceneManager.LoadScene("EndCreditsScene");
             }
         }
 
