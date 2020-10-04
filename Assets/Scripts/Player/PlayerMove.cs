@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -10,13 +11,14 @@ public class PlayerMove : MonoBehaviour
 
     public List<PointInTime> points = new List<PointInTime>();
     private CharacterController characterController;
+    private AudioSource audioSource;
     public Animator animator;
     private Vector3 moveDir;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -26,8 +28,19 @@ public class PlayerMove : MonoBehaviour
             HandleInput();
             HandleMove();
             HandleAnimation();
+            HandleAudio();
             HandlePoints();
         }
+    }
+
+    private void HandleAudio()
+    {
+        if (characterController.velocity.magnitude != 0 && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else
+            audioSource.Stop();
     }
 
     private void HandleAnimation()
