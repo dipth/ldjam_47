@@ -77,14 +77,20 @@ namespace Puzzles
             {
                 Debug.Log("OpenDoor called");
 
-                door.SetActive(false);
+                var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
+                doorManager.OpenDoor();
+
+                //door.SetActive(false);
             }
 
             private void CloseDoor()
             {
                 Debug.Log("CloseDoor called");
+                
+                 var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
+                doorManager.CloseDoor();
 
-                door.SetActive(true);
+               //door.SetActive(true);
             }
         }
 
