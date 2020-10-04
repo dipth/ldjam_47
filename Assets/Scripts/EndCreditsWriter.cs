@@ -1,12 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using TMPro;
 
 public class EndCreditsWriter : MonoBehaviour
 {
-    public float blinkSpeed = 1f; // in seconds
-    public float writeSpeed = 0.05f;  // in seconds
+    public float blinkSpeed = 1f;
+    public float writeSpeed = 0.05f;
+    public float typeSpeed = 0.1f;
     public float initialWait = 3f;
     public float waitSpeed = 0.5f;
 
@@ -18,6 +19,7 @@ public class EndCreditsWriter : MonoBehaviour
     void Start()
     {
         textMesh = gameObject.GetComponent<TextMeshProUGUI>();
+        ClearScreen();
         StartCoroutine(Blink());
         StartCoroutine(Execute());
     }
@@ -95,7 +97,7 @@ public class EndCreditsWriter : MonoBehaviour
             yield return new WaitForSeconds(waitSpeed);
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         ClearScreen();
         yield return new WaitForSeconds(0.5f);
 
@@ -114,7 +116,7 @@ public class EndCreditsWriter : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
 
-        writeSpeed = 0.3f;
+        writeSpeed = typeSpeed;
         StartCoroutine(WriteLine("punching_pandas\n"));
         while (writing)
         {
@@ -130,7 +132,7 @@ public class EndCreditsWriter : MonoBehaviour
         }
         yield return new WaitForSeconds(0.6f);
 
-        writeSpeed = 0.3f;
+        writeSpeed = typeSpeed;
         StartCoroutine(WriteLine("***************\n"));
         while (writing)
         {
@@ -175,7 +177,7 @@ public class EndCreditsWriter : MonoBehaviour
         ClearScreen();
 
         writeSpeed = 0.05f;
-        StartCoroutine(WriteLine(" - @Zpanzer: art\n - @TC: art\n - @Santino: art\n - @PierreNS: programming\n - @dipth: programming\n - @BonBonCul: programming\n\n> "));
+        StartCoroutine(WriteLine("[Username]...........[Role].........\nZpanzer..............art............\nThorlegs.............art............\nSantino..............art............\nPierreNS.............programming....\nBonBonCul............programming....\ndipth................programming....\n\n> "));
         while (writing)
         {
             yield return new WaitForSeconds(waitSpeed);
@@ -215,12 +217,36 @@ public class EndCreditsWriter : MonoBehaviour
             yield return new WaitForSeconds(waitSpeed);
         }
         writeSpeed = 0.05f;
-        StartCoroutine(WriteLine("\nShutting down"));
+        StartCoroutine(WriteLine("\nClearing buffers"));
         while (writing)
         {
             yield return new WaitForSeconds(waitSpeed);
         }
         writeSpeed = 0.2f;
+        StartCoroutine(WriteLine("..................OK"));
+        while (writing)
+        {
+            yield return new WaitForSeconds(waitSpeed);
+        }
+        writeSpeed = 0.05f;
+        StartCoroutine(WriteLine("\nUnmounting volumes"));
+        while (writing)
+        {
+            yield return new WaitForSeconds(waitSpeed);
+        }
+        writeSpeed = 0.2f;
+        StartCoroutine(WriteLine("................OK"));
+        while (writing)
+        {
+            yield return new WaitForSeconds(waitSpeed);
+        }
+        writeSpeed = 0.05f;
+        StartCoroutine(WriteLine("\nShutting down"));
+        while (writing)
+        {
+            yield return new WaitForSeconds(waitSpeed);
+        }
+        writeSpeed = 0.4f;
         StartCoroutine(WriteLine("......................."));
         while (writing)
         {
@@ -228,5 +254,6 @@ public class EndCreditsWriter : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         ClearScreen();
+        Application.Quit();
     }
 }
