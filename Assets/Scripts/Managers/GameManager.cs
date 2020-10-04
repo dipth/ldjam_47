@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Kino;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public List<Transform> wayPoints = new List<Transform>();
     public int currentWaypointIndex = 0;
     public float ResetTimer = 1f;
+    public DigitalGlitch digitalGlitch;
 
     private PlayerMove playerMove;
 
