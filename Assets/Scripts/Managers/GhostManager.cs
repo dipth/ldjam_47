@@ -36,6 +36,28 @@ public class GhostManager : MonoBehaviour
         }
     }
 
+    public void DisableGhostVisuals()
+    {
+        if (ghosts.Count > 0)
+        {
+            for (int i = 0; i < ghosts.Count; i++)
+            {
+                ghosts[i].Sr.enabled = false;
+            }
+        }
+    }
+
+    public void EnableGhostVisuals()
+    {
+        if (ghosts.Count > 0)
+        {
+            for (int i = 0; i < ghosts.Count; i++)
+            {
+                ghosts[i].Sr.enabled = true;
+            }
+        }
+    }
+
     public void EnableGhosts() 
     {
         if (ghosts.Count > 0)
@@ -43,7 +65,6 @@ public class GhostManager : MonoBehaviour
             for (int i = 0; i < ghosts.Count; i++)
             {
                 ghosts[i].canMove = true;
-                ghosts[i].EnableVisuals();
             }
         }
     }

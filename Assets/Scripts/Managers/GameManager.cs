@@ -39,22 +39,22 @@ public class GameManager : MonoBehaviour
     {
         playerMove.canMove = false;
         playerMove.ResetVelocity();
-        playerMove.DisableCharacterController();
+        
+        GhostManager.instance.DisableGhostVisuals();
         GhostManager.instance.CreateGhost(playerMove.points);
 
-        //Run glitchAnimation
-
-        yield return new WaitForSeconds(ResetTimer);
-        playerMove.EnableCharacterController();
         playerMove.ResetPosition(wayPoints[currentWaypointIndex].position, wayPoints[currentWaypointIndex].rotation);
 
-        //Run something here ?
+        yield return new WaitForSeconds(2f);
 
-        yield return new WaitForSeconds(ResetTimer);
-        playerMove.canMove = true;
         GhostManager.instance.ResetGhosts();
+
+        GhostManager.instance.EnableGhostVisuals();
+        
+        yield return new WaitForSeconds(.45f);
         GhostManager.instance.EnableGhosts();
         TimeManager.instance.StartTimer();
+        playerMove.canMove = true;
     }
 
     public void NewWaypoint(int newIndex) 

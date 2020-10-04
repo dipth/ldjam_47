@@ -11,14 +11,15 @@ public class PlayerMove : MonoBehaviour
 
     public List<PointInTime> points = new List<PointInTime>();
     private CharacterController characterController;
-    private AudioSource audioSource;
+    private AudioSource footstepAudioSource;
+    public AudioSource glitchAudioSource;
     public Animator animator;
     private Vector3 moveDir;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        audioSource = GetComponent<AudioSource>();
+        footstepAudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,12 +36,15 @@ public class PlayerMove : MonoBehaviour
 
     private void HandleAudio()
     {
-        if (audioSource.isPlaying)
+        Debug.Log(characterController.velocity.magnitude);
+        if (characterController.velocity.magnitude != 0 && footstepAudioSource.isPlaying == false)
         {
-            audioSource.Play();
+            footstepAudioSource.Play();
         }
-        else
-            audioSource.Stop();
+        else if(characterController.velocity.magnitude == 0)
+        {
+            footstepAudioSource.Stop();
+        }
     }
 
     private void HandleAnimation()
@@ -80,6 +84,8 @@ public class PlayerMove : MonoBehaviour
         transform.position = newPos;
         transform.rotation = newRot;
         points.Clear();
+        animator.SetTrigger("Glitch");
+        glitchAudioSource.Play();
     }
 
     public void ClearPath() 
