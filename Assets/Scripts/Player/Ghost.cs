@@ -13,12 +13,32 @@ public class Ghost : MonoBehaviour
     public bool canMove = false;
     public int pathIndex;
 
+    public Animator animator;
+    public Rigidbody rigidbody;
+
+    private Vector3 previous;
+    private Vector3 current;
+
     private void Update()
     {
         if (canMove)
         {
             FollowPath();
         }
+
+        HandleAnimation();
+    }
+    private void LateUpdate()
+    {
+        previous = transform.position;
+    }
+
+    private void HandleAnimation()
+    {
+        current = transform.position;
+        var velocity = (current - previous) / Time.deltaTime;
+        animator.SetFloat("xVel", velocity.x);
+        animator.SetFloat("zVel", velocity.z);
     }
 
     public void AddPath(List<PointInTime> _path) 

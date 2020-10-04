@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -34,18 +35,21 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ResetPlayerRoutine() 
     {
+        playerMove.canMove = false;
+        playerMove.ResetVelocity();
         playerMove.DisableCharacterController();
         GhostManager.instance.CreateGhost(playerMove.points);
 
         //Run glitchAnimation
 
         yield return new WaitForSeconds(ResetTimer);
+        playerMove.EnableCharacterController();
         playerMove.ResetPosition(wayPoints[currentWaypointIndex].position, wayPoints[currentWaypointIndex].rotation);
 
         //Run something here ?
 
         yield return new WaitForSeconds(ResetTimer);
-        playerMove.EnableCharacterController();
+        playerMove.canMove = true;
         GhostManager.instance.ResetGhosts();
         GhostManager.instance.EnableGhosts();
         TimeManager.instance.StartTimer();
