@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         playerMove.EnableCharacterController();
         GhostManager.instance.ResetGhosts();
         GhostManager.instance.EnableGhosts();
+        TimeManager.instance.StartTimer();
     }
 
     public void NewWaypoint(int newIndex) 
