@@ -20,6 +20,16 @@ namespace Puzzles
                 {
                     _instance = this;
                 }
+
+                pressurePlate1 = GameObject.Find("Level4_PressurePlate_UpperRight");
+                pressurePlate2 = GameObject.Find("Level4_PressurePlate_LowerLeft");
+                pressurePlate3 = GameObject.Find("Level4_PressurePlate_LowerRight");
+                pressurePlate4 = GameObject.Find("Level4_PressurePlate_UpperLeft");
+
+                door1 = GameObject.Find("Level4_Door_LowerLeft");
+                door2 = GameObject.Find("Level4_Door_LowerRight");
+                door3 = GameObject.Find("Level4_Door_UpperLeft");
+                door4 = GameObject.Find("Level4_Door_Main");
             }
 
             public GameObject pressurePlate1;
@@ -128,20 +138,25 @@ namespace Puzzles
             {
                 Debug.Log("OpenDoor called");
 
-                var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
-                doorManager.OpenDoor();
+                //var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
+                //doorManager.OpenDoor();
 
-               // door.SetActive(false);
+                door.GetComponent<DoorManager>().OpenDoor();
+
+
+                // door.SetActive(false);
             }
 
             private void CloseDoor(GameObject door)
             {
                 Debug.Log("CloseDoor called");
 
-                var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
-                doorManager.CloseDoor();
+                //var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
+                //doorManager.CloseDoor();
 
-              //  door.SetActive(true);
+                door.GetComponent<DoorManager>().CloseDoor();
+
+                //  door.SetActive(true);
             }
         }  
     }

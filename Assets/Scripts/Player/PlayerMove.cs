@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     private void HandleAudio()
     {
-        Debug.Log(characterController.velocity.magnitude);
+        //Debug.Log(characterController.velocity.magnitude);
         if (characterController.velocity.magnitude != 0 && footstepAudioSource.isPlaying == false)
         {
             footstepAudioSource.Play();
