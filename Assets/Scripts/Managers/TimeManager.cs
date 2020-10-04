@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kino;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +15,7 @@ public class TimeManager : MonoBehaviour
     public Stopwatch stopwatch = new Stopwatch();
 
     public bool runTime = true;
+    public float timeScale;
 
     private void Awake()
     {
@@ -50,7 +52,7 @@ public class TimeManager : MonoBehaviour
         if (stopwatch.ElapsedMilliseconds > timeToRewind)
         {
             StopTimer();
-            RewindTime();
+            RewindTime(); 
             //UnityEngine.Debug.Log("Times up");
         }
     }
