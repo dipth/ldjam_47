@@ -16,7 +16,7 @@ public class DoorManager : MonoBehaviour
 
     int childCount = 0;
 
-    BoxCollider doorCollider;
+    BoxCollider doorCollider;   
 
     int doorDoneCount = 0;
 
@@ -45,18 +45,13 @@ public class DoorManager : MonoBehaviour
 
     }
 
-    /*  IEnumerator OpenDoorCoroutine() {
-
-            for (var i = 0; i < childCount; i++) {
-                 yield return new WaitForSeconds(0.2f);
-
-
-
-            }
-      }*/
-
     public void OpenDoor()
-    {
+    {      
+        var audioSource = GetComponent<AudioSource>();
+        if (!audioSource.isPlaying) {
+            audioSource.Play();
+        }
+
         for (var i = 0; i < childCount; i++)
         {
             if (handleDoor[i] != null)
