@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     private CharacterController characterController;
     public Animator animator;
     private Vector3 moveDir;
- 
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (characterController.enabled)
+        if (canMove)
         {
             HandleInput();
             HandleMove();
@@ -72,5 +72,10 @@ public class PlayerMove : MonoBehaviour
     public void ClearPath() 
     {
         points.Clear();
+    }
+
+    public void ResetVelocity()
+    {
+        characterController.velocity.Set(0, 0, 0);
     }
 }
