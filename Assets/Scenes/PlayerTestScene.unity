@@ -1959,7 +1959,12 @@ PrefabInstance:
     - target: {fileID: 251319789004854232, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
         type: 3}
       propertyPath: runTime
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 251319789004854232, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
+        type: 3}
+      propertyPath: timeToRewind
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1078882284504842700, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
         type: 3}
