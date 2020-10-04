@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
 
     private void HandleAudio()
     {
-        if (!audioSource.isPlaying)
+        if (audioSource.isPlaying)
         {
             audioSource.Play();
         }
