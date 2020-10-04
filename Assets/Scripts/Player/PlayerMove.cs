@@ -10,11 +10,13 @@ public class PlayerMove : MonoBehaviour
 
     public List<PointInTime> points = new List<PointInTime>();
     private CharacterController characterController;
+    public Animator animator;
     private Vector3 moveDir;
  
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        
     }
 
     void Update()
@@ -23,8 +25,15 @@ public class PlayerMove : MonoBehaviour
         {
             HandleInput();
             HandleMove();
+            HandleAnimation();
             HandlePoints();
         }
+    }
+
+    private void HandleAnimation()
+    {
+        animator.SetFloat("xVel", characterController.velocity.x);
+        animator.SetFloat("zVel", characterController.velocity.z);
     }
 
     void HandleInput() 

@@ -320,12 +320,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 987372868205711942, guid: 410ef35b1805fc349879d07a96b6c6f3,
+    - target: {fileID: 243949443845034592, guid: 410ef35b1805fc349879d07a96b6c6f3,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 70d74be153939f94ca0053156a9b04e8,
+      propertyPath: m_LocalRotation.x
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 243949443845034592, guid: 410ef35b1805fc349879d07a96b6c6f3,
         type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 243949443845034592, guid: 410ef35b1805fc349879d07a96b6c6f3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 243949443845034592, guid: 410ef35b1805fc349879d07a96b6c6f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 243949443845034592, guid: 410ef35b1805fc349879d07a96b6c6f3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 243949443845034592, guid: 410ef35b1805fc349879d07a96b6c6f3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876041814984878275, guid: 410ef35b1805fc349879d07a96b6c6f3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6100167433262282931, guid: 410ef35b1805fc349879d07a96b6c6f3,
         type: 3}
       propertyPath: m_Name
@@ -1957,6 +1986,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 251319789004854232, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
+        type: 3}
+      propertyPath: runTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1078882284504842700, guid: 4e48e1122e5ec8448b2719e5bfc403ee,
         type: 3}
       propertyPath: wayPoints.Array.size
