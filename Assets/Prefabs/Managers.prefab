@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7647c80f4d8ec84bbf87540173d7d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToRewind: 5000
+  timeToRewind: 10000
+  runTime: 1
 --- !u!114 &6099189295270933464
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,4 +59,9 @@ public class PlayerMove : MonoBehaviour
         transform.rotation = newRot;
         points.Clear();
     }
+
+    public void ClearPath() 
+    {
+        points.Clear();
+    }
 }

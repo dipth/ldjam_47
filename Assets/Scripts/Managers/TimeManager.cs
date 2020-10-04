@@ -13,6 +13,8 @@ public class TimeManager : MonoBehaviour
 
     public Stopwatch stopwatch = new Stopwatch();
 
+    public bool runTime = true;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,8 +30,8 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        StartTimer();
-        CheckTime();
+        if (runTime)
+            CheckTime();
     }
 
     public void StartTimer() 
