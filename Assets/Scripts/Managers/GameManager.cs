@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public List<Transform> wayPoints = new List<Transform>();
     public int currentWaypointIndex = 0;
     public float ResetTimer = 1f;
-    public DigitalGlitch digitalGlitch;
 
     private PlayerMove playerMove;
 
@@ -45,7 +44,11 @@ public class GameManager : MonoBehaviour
 
         playerMove.ResetPosition(wayPoints[currentWaypointIndex].position, wayPoints[currentWaypointIndex].rotation);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.3f);
+
+        TimeManager.instance.StopGlitchEffect();
+
+        yield return new WaitForSeconds(1.7f);
 
         GhostManager.instance.ResetGhosts();
 
@@ -62,5 +65,6 @@ public class GameManager : MonoBehaviour
         currentWaypointIndex = newIndex;
         GhostManager.instance.GhostBusters();
         playerMove.ClearPath();
+        TimeManager.instance.StopGlitchEffect();
     }
 }

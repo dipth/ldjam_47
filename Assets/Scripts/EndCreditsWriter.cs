@@ -2,6 +2,7 @@
 using System.Text;
 using UnityEngine;
 using TMPro;
+using UnityEngine.PlayerLoop;
 
 public class EndCreditsWriter : MonoBehaviour
 {
@@ -26,6 +27,14 @@ public class EndCreditsWriter : MonoBehaviour
         StartCoroutine(Blink());
         if (shouldWrite)
             StartCoroutine(Execute());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     IEnumerator Blink()
