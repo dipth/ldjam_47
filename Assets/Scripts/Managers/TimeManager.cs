@@ -62,6 +62,6 @@ public class TimeManager : MonoBehaviour
         if (OnTimesUp != null)
             OnTimesUp.Invoke();
 
-        UnityEngine.Debug.Log("TimesUp");
+        //UnityEngine.Debug.Log("TimesUp");
     }
 }

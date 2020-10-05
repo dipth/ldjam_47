@@ -37,7 +37,7 @@ public class DebugManager : MonoBehaviour
 
     private void JumpToLvl(int num)
     {
-        Debug.Log($"Jumping to level {num}...");
+        //Debug.Log($"Jumping to level {num}...");
         GameManager.instance.NewWaypoint(num - 1);
         GameManager.instance.ResetPlayer();
     }
