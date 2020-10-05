@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  roomTimer: 12000
+  roomTimer: 15000
 --- !u!1 &253174477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7172692217213586719, guid: 760f9c9f31497f941b6e255c5cb01d45,
@@ -7295,7 +7295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
-  roomTimer: 15000
+  roomTimer: 18000
 --- !u!1 &2053024827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2736302059417503287, guid: 760f9c9f31497f941b6e255c5cb01d45,

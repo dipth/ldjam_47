@@ -5,6 +5,8 @@ using TMPro;
 
 public class EndCreditsWriter : MonoBehaviour
 {
+    public bool shouldWrite = true;
+
     public float blinkSpeed = 1f;
     public float writeSpeed = 0.05f;
     public float typeSpeed = 0.1f;
@@ -19,16 +21,18 @@ public class EndCreditsWriter : MonoBehaviour
     void Start()
     {
         textMesh = gameObject.GetComponent<TextMeshProUGUI>();
-        ClearScreen();
+        if (shouldWrite)
+            ClearScreen();
         StartCoroutine(Blink());
-        StartCoroutine(Execute());
+        if (shouldWrite)
+            StartCoroutine(Execute());
     }
 
     IEnumerator Blink()
     {
         while(true)
         {
-            Debug.Log("loop");
+            //Debug.Log("loop");
 
             if (showingCarret)
             {
@@ -44,7 +48,7 @@ public class EndCreditsWriter : MonoBehaviour
 
     private void ShowCarret()
     {
-        Debug.Log("ShowCarret()");
+        //Debug.Log("ShowCarret()");
 
         if (writing || showingCarret)
             return;
@@ -55,7 +59,7 @@ public class EndCreditsWriter : MonoBehaviour
 
     private void HideCarret()
     {
-        Debug.Log("HideCarret()");
+        //Debug.Log("HideCarret()");
 
         if (!showingCarret || textMesh.text == "")
             return;

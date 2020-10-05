@@ -48,7 +48,7 @@ namespace Puzzles
 
             public void OnPressurePlateEnter(GameObject pressurePlate, GameObject triggerPerson)
             {
-                Debug.Log("OnPressurePlateEnter called");
+                //Debug.Log("OnPressurePlateEnter called");
 
                 if (pressurePlate == pressurePlate1)
                 {
@@ -72,7 +72,7 @@ namespace Puzzles
 
             public void OnPressurePlateExit(GameObject pressurePlate, GameObject triggerPerson)
             {
-                Debug.Log("OnPressurePlateEnter called");
+                //Debug.Log("OnPressurePlateEnter called");
 
                 if (pressurePlate == pressurePlate1)
                 {
@@ -96,7 +96,7 @@ namespace Puzzles
 
             private void UpdateDoors()
             {
-                Debug.Log($"UpdateDoor called: {pressurePlate1Weight}, {pressurePlate2Weight}, {pressurePlate3Weight}, {pressurePlate4Weight}");
+                //Debug.Log($"UpdateDoor called: {pressurePlate1Weight}, {pressurePlate2Weight}, {pressurePlate3Weight}, {pressurePlate4Weight}");
 
                 if (pressurePlate1Weight > 0)
                 {
@@ -136,7 +136,7 @@ namespace Puzzles
 
             private void OpenDoor(GameObject door)
             {
-                Debug.Log("OpenDoor called");
+                //Debug.Log("OpenDoor called");
 
                 //var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
                 //doorManager.OpenDoor();
@@ -149,7 +149,7 @@ namespace Puzzles
 
             private void CloseDoor(GameObject door)
             {
-                Debug.Log("CloseDoor called");
+                //Debug.Log("CloseDoor called");
 
                 //var doorManager = door.GetComponent(typeof(DoorManager)) as DoorManager;
                 //doorManager.CloseDoor();
